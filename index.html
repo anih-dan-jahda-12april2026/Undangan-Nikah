@@ -488,18 +488,10 @@ video.show {
   object-fit: contain; /* 🔥 INI KUNCINYA */
 }
 
-.hidden-section {
-  opacity: 0;
-  transform: translateY(50px);
-  pointer-events: none;
-  transition: 1s;
+    #guestbook {
+  animation: fadeUp 1s ease;
 }
-
-.hidden-section.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
+    
   </style>
 </head>
 
@@ -532,7 +524,7 @@ video.show {
 </div>  
 
 
-<div id="guestbook" class="hidden-section">
+<div id="guestbook">
   <h2 style="font-size:30px; color:#aaffcc;">💌 Buku Tamu</h2>
 
 <div class="form-group">
@@ -825,29 +817,11 @@ function scrollKeGuestbook() {
   let guest = document.getElementById("guestbook");
   let map = document.getElementById("lokasi");
 
-  guest.classList.add("show");
-  map.classList.add("show");
 
   guest.scrollIntoView({
     behavior: "smooth"
   });
 }
-</script>
-
-<script>
-let triggered = false;
-
-window.addEventListener("scroll", function() {
-  if(triggered) return;
-
-  let scrollY = window.scrollY;
-
-  if(scrollY > 100) {
-    document.getElementById("guestbook").classList.add("show");
-    document.getElementById("lokasi").classList.add("show");
-    triggered = true;
-  }
-});
 </script>
 
 </body>
