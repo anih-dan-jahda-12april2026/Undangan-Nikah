@@ -458,8 +458,8 @@ html {
 video {
   width: 100%;
   display: block;
-  opacity: 0;
-  transform: translateY(50px);
+  opacity: 1; /* 🔥 ubah ini */
+  transform: none;
   transition: 1s;
   border-radius: 10px;
 }
@@ -584,6 +584,8 @@ function bukaUndangan() {
   // paksa video play
   let playPromise = video.play();
 
+video.classList.add("show");
+
   if (playPromise !== undefined) {
     playPromise.catch(() => {
       console.log("Autoplay diblok, coba klik manual");
@@ -699,6 +701,7 @@ window.addEventListener("scroll", function() {
 
     if(top < trigger - 100) {
       img.classList.add("show");
+video.classList.add("show");
 
       if(!wrap.classList.contains("sparkle-added")) {
         tambahSparkle(wrap);
