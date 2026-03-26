@@ -457,7 +457,11 @@ html {
 #guestbook {
   background: 
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url('bg.jpg') center/cover no-repeat;
+    url('bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   backdrop-filter: blur(10px);
 
