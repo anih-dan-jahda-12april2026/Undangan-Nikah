@@ -505,6 +505,28 @@ video.show {
   animation: fadeUp 1s ease;
 }
 
+    #videoControl {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 1px solid gold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+
+  backdrop-filter: blur(5px);
+  transition: 0.3s;
+}
+
+#videoControl:hover {
+  transform: scale(1.1);
+}
+    
   </style>
 </head>
 
@@ -536,6 +558,9 @@ video.show {
 </video>
 </div>  
 
+    <!-- 🎬 CONTROL BUTTON -->
+  <button id="videoControl" onclick="toggleVideo(event)">⏸ Pause</button>
+</div>
 
 <div id="guestbook">
   <h2 style="font-size:30px; color:#aaffcc;">💌 Buku Tamu</h2>
@@ -837,5 +862,22 @@ function scrollKeGuestbook() {
 }
 </script>
 
+  <script>
+function toggleVideo(e) {
+  e.stopPropagation(); // 🔥 biar ga ikut klik scroll
+
+  let video = document.getElementById("mainVideo");
+  let btn = document.getElementById("videoControl");
+
+  if (video.paused) {
+    video.play();
+    btn.innerText = "⏸ Pause";
+  } else {
+    video.pause();
+    btn.innerText = "▶ Play";
+  }
+}
+</script>
+  
 </body>
 </html>
